@@ -16,20 +16,19 @@ export class AppComponent implements OnInit {
   title = 'amplify-app';
 
   async ngOnInit() {
-    const data = await DataStore.query(Todo);
-    // await DataStore.save(
-    //   new Todo({
-    //     "name": "sunxiaoda",
-    //     "description": "This is a Amplify Test"
-    //   })
-    // );
-    console.log(DataStore);
-    console.log(data);
+  }
 
-    setInterval(async () => {
-      const data = await DataStore.query(Todo);
-      console.log(data);
-    }, 5000)
+  async setData() {
+    const toDo = new Todo({
+      name: 'sunxiaoda',
+      description: new Date().toTimeString(),
+    })
+    await DataStore.save(toDo);
+  }
+
+  async getData() {
+    const data = await DataStore.query(Todo);
+    console.log(data);
   }
 }
 
