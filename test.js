@@ -1,0 +1,1 @@
+console.log(process.env.HTTP_PROXY);
